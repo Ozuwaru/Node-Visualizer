@@ -8,7 +8,7 @@ private:
 public:
 
     bool clickVer(int mouseX, int mouseY) {
-        return (mouseX >= x && mouseX <= x + ancho && mouseY >= y && mouseY <= y + alto);
+        return (mouseX >= x-(x/2) && mouseX <= x + ancho && mouseY >= y && mouseY <= y + alto);
     }
     void dibujar() {
     	setbkcolor(8);
@@ -98,16 +98,15 @@ public:
 		settextstyle(BOLD_FONT,HORIZ_DIR,5);
 		//outtextxy(700,100,"Creador de Grafos");
 		
-		botonesMenu.push_back(mostrarC("Ingreso de Pares",700,350));
+		botonesMenu.push_back(mostrarC("Node pair input",700,350));
 		
-		botonesMenu.push_back(mostrarC("Visualizar Grafo",700,410));
+		botonesMenu.push_back(mostrarC("Graph Visualizer",700,410));
 		
-		botonesMenu.push_back(mostrarC("Salir",700,470));
+		botonesMenu.push_back(mostrarC("Exit",700,470));
 		
 		
 		
-		botonesIngreso.push_back(mostrarC("Ingresar Par",450,350));
-		botonesIngreso.push_back(mostrarC("Ingresar Matriz",950,350));
+		botonesIngreso.push_back(mostrarC("Input Pair",450,350));
 		int pX, pY;
 		
 		int v=0;
@@ -123,7 +122,9 @@ public:
 					setcolor(DARKGRAY);
 					settextjustify(1,0);
 					settextstyle(BOLD_FONT,HORIZ_DIR,5);
-					outtextxy(700,100,"Creador de Grafos");
+					outtextxy(700,100,"Graph Visualizer");
+					settextstyle(BOLD_FONT,HORIZ_DIR,2);
+					outtextxy(700,600,"Made By: Oswald Torrealba");
 					for(int i=0;i<botonesMenu.size();i++){
 						botonesMenu[i].dibujar();
 					}
@@ -155,7 +156,6 @@ public:
 					setcolor(DARKGRAY);
 					settextjustify(1,0);
 					settextstyle(BOLD_FONT,HORIZ_DIR,5);
-					outtextxy(700,100,"Menu de Ingreso");
 					
 //					for(int i=0;i<botonesIngreso.size();i++){
 //						botonesIngreso[i].dibujar();
@@ -172,23 +172,25 @@ public:
 								cleardevice();
 								
 								setcolor(DARKGRAY);
+								settextstyle(BOLD_FONT,HORIZ_DIR,2);
+								outtextxy(300,50,"(Press Enter)");
 								settextstyle(BOLD_FONT,HORIZ_DIR,5);
-								outtextxy(700,100,"Menu de Ingreso");
+								outtextxy(700,100,"Input Menu");
 								
 								settextstyle(BOLD_FONT,HORIZ_DIR,2);
-								outtextxy(300,200,"Ingrese el numero del Nodo de Salida: ");
+								outtextxy(300,200,"Input the exiting Node: ");
 								int n1 =leerN(650,200);
-								outtextxy(300,250,"Ingrese el numero del Nodo de Entrada: ");
+								outtextxy(300,250,"Input the arriving : ");
 								int n2 =leerN(650,250);
 								g.addNode(n1,n2);
 								
 								g.mostrarGrafo();
-								outtextxy(200,350,"Matriz de adyacencia");
+								outtextxy(200,350,"Adjacent Nodes Matrix");
 								g.matrizAdyacencia(40,400);
-								outtextxy(500,350,"Matriz de incidencia");
+								outtextxy(500,350,"Colliding Nodes Matrix");
 								g.matrizIncidencia(450,400);
 								vector<Cuadro> conf;
-								conf.push_back(mostrarC("Continuar", 1050, 600));
+								conf.push_back(mostrarC("Continue", 1050, 600));
 								conf[0].dibujar();
 								while(true){
 									
@@ -217,16 +219,16 @@ public:
 					//Aqui dibujaremos la matriz de adyacencia y de incidencia y dibujaremos el nodo, pero mas grande
 					setcolor(DARKGRAY);
 					settextstyle(BOLD_FONT,HORIZ_DIR,5);
-								outtextxy(700,50,"Dibujo del Grafo");
+								outtextxy(700,50,"Graph Visualizer");
 								
 								settextstyle(BOLD_FONT,HORIZ_DIR,2);
 								g.mostrarGrafo(200);
-								outtextxy(350,150,"Matriz de adyacencia");
+								outtextxy(350,150,"Adjacent Nodes Matrix");
 								g.matrizAdyacencia(260,200);
-								outtextxy(350,400,"Matriz de incidencia");
+								outtextxy(350,400,"Colliding Nodes Matrix");
 								g.matrizIncidencia(260,450);
 								vector<Cuadro> conf;
-								conf.push_back(mostrarC("Continuar", 1050, 600));
+								conf.push_back(mostrarC("Continue", 1050, 600));
 								conf[0].dibujar();
 								while(true){
 									
