@@ -2,15 +2,6 @@
 #include <vector>
 #include <math.h>
 #include<graphics.h>
-/*
-PROCESOS QUE DEBE CUMPLIR EL PROGRAMA:
--Ingresar pares ordenados de un grafo (padre, hijo)
--Ingresar datos desde una matriz de adyacencia
--Mostrar la matriz
--Mostrar el grafo*/
-
-
-
 
 
 using namespace std;
